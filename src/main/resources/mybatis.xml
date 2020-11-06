@@ -3,5 +3,16 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <!--控制mybatis全局行为-->
+    <settings>
+        <!--设置mybatis输出日志-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--设置别名-->
+    <typeAliases>
+        <!--实体类所在的包名-->
+        <package name="indi.programmer.core.pojo"/>
+    </typeAliases>
 
 </configuration>
