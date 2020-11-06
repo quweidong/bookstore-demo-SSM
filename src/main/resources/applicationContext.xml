@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--声明组件扫描器，扫描的是service实现层的类-->
+    <context:component-scan base-package="indi.programmer.core.serviceImpl"></context:component-scan>
 
+    <!--让spring知道jdbc.properties文件的位置-->
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+
+    <!--声明数据源DataSource，是用来连接数据库的-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <!--因为无法修改druid源代码，无法使用注解，所以使用set注入给DruidDataSource提供连接数据库的信息-->
+        <property name="url" value="${url}" />
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+        <property name="maxActive" value="${maxActive}"/>
+    </bean>
+
+    <!--声明mybatis中提供的SqlSessionFactoryBean类-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--使用set注入，把上面的数据库连接池赋值给了SqlSessionFactory类的dataSource属性-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--指定configLocation的值为mybatis配置文件-->
+        <property name="configLocation" value="classpath:mybatis.xml"/>
+    </bean>
+
+    <!--会扫描dao包中的所有接口，将每个接口都执行getMapper方法，获取每个接口的dao对象，创建好的dao对象放入到spring容器中，
+    dao对象默认的名称是接口首字母小写-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <property name="basePackage" value="indi.programmer.core.dao"/>
+    </bean>
 </beans>
