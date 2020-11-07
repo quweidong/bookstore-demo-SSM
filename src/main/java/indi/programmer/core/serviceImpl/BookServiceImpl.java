@@ -18,7 +18,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> TopTwentySales() {
-        List<Book> bookList = bookDao.queryTopTwentyBooksFromBook();
+        List<Book> bookList = bookDao.queryTopTwentyBooksFromTableBook();
         return bookList;
     }
 }

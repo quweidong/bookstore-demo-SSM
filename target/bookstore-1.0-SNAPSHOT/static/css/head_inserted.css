@@ -1,0 +1,123 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+#headDiv{
+    position: absolute;
+    background-color: #f1fafc;
+    width: 100%;
+    height: 40px;
+}
+#headDiv img:hover{
+    cursor: pointer;
+}
+/*用户头像*/
+#userAvatar{
+    margin-left: 12.5%;
+    border-radius: 30px;
+    height:36px;
+    width:36px;
+    margin-top: 2px;
+}
+#head_span_1{
+    font-size: 14px;
+    position: absolute;
+    margin-left: 10px;
+    line-height: 40px;
+}
+
+#head_span_2{
+    position: absolute;
+    right: 12.5%;
+    font-size: 14px;
+    top: 13px;
+}
+/*上传头像的表单*/
+#uploadAvatar{
+    display: none;
+}
+#head_div_2{
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 130px;
+    top: 40px;
+}
+#head_div_3{
+    position: absolute;
+    width: 510px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+#search_box{
+    width: 450px;
+    height: 50px;
+    float: left;
+    border-top: 2px solid #70b1c3;
+    border-left: 2px solid #70b1c3;
+    border-bottom: 2px solid #70b1c3;
+    border-right: 2px solid #70b1c3;
+    font-size: 20px;
+    outline: none;
+}
+#searchButton{
+    cursor: pointer;
+}
+#searchButton img{
+    width: 54px;
+    height: 54px;
+}
+#head_div_5{
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 50px;
+    top: 170px;
+}
+#nav {
+    left: 12.5%;
+    position: absolute;
+    width: 400px;/*整个nav宽度*/
+    height: 50px;/*整个nav高度*/
+    padding: 0px;/*将框框的padding设置为零，不然会导致框框里的内容与框边缘有间隔*/
+}
+#nav li{
+    list-style-type: none;/* 去掉li前的点 */
+    float: left;/*将li设置成做浮动，变为联动*/
+}
+#nav a{
+    display: block;/*将a变成块状*/
+    width: 100px;/*设置块的宽度*/
+    height: 50px;/*设置块的高度*/
+    font-family: Microsoft Yahei;
+    line-height: 50px;/*设置字体在块中的高度*/
+    background-color: white;
+    margin: 0px 0px;
+    color: black;
+    text-align: center;/*字体居中*/
+    text-decoration: none;/*去掉下划线*/
+    font-size: 20px;
+}
+
+#nav a:hover{
+
+    background-color: lightcyan;
+
+}
+#line{
+    position: absolute;
+    top: 220px;
+    width: 100%;
+    height: 3px;
+    background-color: #70b1c3;
+}
