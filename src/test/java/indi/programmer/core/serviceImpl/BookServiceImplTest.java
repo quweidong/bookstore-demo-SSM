@@ -21,4 +21,24 @@ public class BookServiceImplTest extends BaseTest {
             System.out.println(book);
         }
     }
+
+    @Test
+    public void selectOneBook() {
+        Book book = bookService.selectOneBook(2);
+        System.out.println(book);
+    }
+
+    @Test
+    public void searchBooksNumberByBookNameOrAuthor() {
+        int count = bookService.searchBooksNumberByBookNameOrAuthor("马");
+        System.out.println(count);
+    }
+
+    @Test
+    public void searchBooksByBookNameOrAuthor() {
+        List<Book> bookList = bookService.searchBooksByBookNameOrAuthor("马","desc","book_price",1);
+        for (Book book:bookList){
+            System.out.println(book);
+        }
+    }
 }

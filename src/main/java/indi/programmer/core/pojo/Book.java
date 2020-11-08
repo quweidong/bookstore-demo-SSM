@@ -3,7 +3,7 @@ package indi.programmer.core.pojo;
 import java.math.BigDecimal;
 import java.util.Date;
 
-//书籍实体类
+/**book表实体类*/
 public class Book {
     private Integer book_id;
     private String book_isbn;
@@ -18,7 +18,7 @@ public class Book {
     private String img_url;
     private String book_introduce;
 
-    //构造方法
+    /**构造方法*/
 
     public Book() {
     }
@@ -38,7 +38,7 @@ public class Book {
         this.book_introduce = book_introduce;
     }
 
-    //getter和setter方法
+    /**getter和setter方法*/
 
     public Integer getBook_id() {
         return book_id;
@@ -136,7 +136,7 @@ public class Book {
         this.book_introduce = book_introduce;
     }
 
-    //toString方法
+    /**toString方法*/
 
     @Override
     public String toString() {

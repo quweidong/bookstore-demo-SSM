@@ -4,7 +4,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="indi.programmer.core.dao.BookDao">
+    <sql id="bookInformation">book_id,book_isbn,book_name,book_author,publish_time,publish_house,page_number,book_price,sales_volume,book_stock,img_url,book_introduce</sql>
+
     <select id="queryTopTwentyBooksFromTableBook" resultType="Book">
-        select book_id,book_isbn,book_name,book_author,publish_time,publish_house,page_number,book_price,sales_volume,book_stock,img_url,book_introduce from book order by sales_volume desc limit 0,20
+        select <include refid="bookInformation" /> from book order by sales_volume desc limit 0,20
+    </select>
+
+    <select id="queryOneBookByBookId" resultType="Book">
+        select <include refid="bookInformation" /> from book where book_id = #{bookId}
+    </select>
+
+    <select id="queryBooksByInformation" resultType="Book">
+        select <include refid="bookInformation" /> from book where book_name like #{inputBook.book_name} or book_author like #{inputBook.book_author} order by ${arrangeField} ${arrangeMethod}
+    </select>
+
+    <select id="queryBooksNumberByInformation" resultType="_int">
+        select count(*) from book where book_name like #{book_name} or book_author like #{book_author}
     </select>
 </mapper>
