@@ -12,12 +12,13 @@ public class Order {
     private String order_telephone;
     private String receiver_name;
     private Integer order_status;
+    private Integer user_id;
 
     /**构造方法*/
     public Order() {
     }
 
-    public Order(Integer order_id, String order_No, Integer order_number, BigDecimal order_price, String order_address, String order_telephone, String receiver_name, Integer order_status) {
+    public Order(Integer order_id, String order_No, Integer order_number, BigDecimal order_price, String order_address, String order_telephone, String receiver_name, Integer order_status, Integer user_id) {
         this.order_id = order_id;
         this.order_No = order_No;
         this.order_number = order_number;
@@ -26,7 +27,9 @@ public class Order {
         this.order_telephone = order_telephone;
         this.receiver_name = receiver_name;
         this.order_status = order_status;
+        this.user_id = user_id;
     }
+
 
     /**getter和setter*/
     public Integer getOrder_id() {
@@ -93,6 +96,14 @@ public class Order {
         this.order_status = order_status;
     }
 
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
+    }
+
     /**toString方法*/
     @Override
     public String toString() {
@@ -105,6 +116,7 @@ public class Order {
                 ", order_telephone='" + order_telephone + '\'' +
                 ", receiver_name='" + receiver_name + '\'' +
                 ", order_status=" + order_status +
+                ", user_id=" + user_id +
                 '}';
     }
 }

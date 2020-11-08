@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="indi.programmer.core.dao.UserDao">
+
+    <sql id="userInformation">id,username,password,telephone,avatar,email</sql>
+
+    <select id="selectExistOneRowByUserName" resultType="User">
+        select <include refid="userInformation"/> from user where username = #{username}
+    </select>
+
+    <select id="selectExistOneRowByUserNameAndPassword" resultType="User">
+        select <include refid="userInformation"/> from user where username = #{username} and password = #{password}
+    </select>
+
+    <insert id="insertOneRowToUserTable">
+        insert into user(username,password,email) values(#{username},#{password},#{email})
+    </insert>
+
+    <insert id="insertOneRowToCarTable">
+        insert into car(user_name) values (#{username})
+    </insert>
+</mapper>
