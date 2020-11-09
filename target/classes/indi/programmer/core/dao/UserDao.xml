@@ -6,11 +6,11 @@
 
     <sql id="userInformation">id,username,password,telephone,avatar,email</sql>
 
-    <select id="selectExistOneRowByUserName" resultType="User">
+    <select id="selectOneRowByUserName" resultType="User">
         select <include refid="userInformation"/> from user where username = #{username}
     </select>
 
-    <select id="selectExistOneRowByUserNameAndPassword" resultType="User">
+    <select id="selectOneRowByUserNameAndPassword" resultType="User">
         select <include refid="userInformation"/> from user where username = #{username} and password = #{password}
     </select>
 

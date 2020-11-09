@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
         user.setUsername(userName);
         user.setPassword(userPassword);
         //返回null表示用户名或密码错误，方法返回false；不为null则表示登录成功，方法返回true
-        User oneUser = userDao.selectExistOneRowByUserNameAndPassword(user);
+        User oneUser = userDao.selectOneRowByUserNameAndPassword(user);
         if (oneUser == null){
             return false;
         }else {
@@ -38,13 +38,11 @@ public class UserServiceImpl implements UserService {
         user.setUsername(userName);
         user.setPassword(userPassword);
         user.setEmail(userEmail);
-        /*返回null表示数据库中不存在该用户，则增加一位用户并且为其添加一辆购物车；不为null表示已存在该用户，返回false*/
-        User oneUser = userDao.selectExistOneRowByUserName(user);
+        /*返回null表示数据库中不存在该用户，则增加一位用户并且为其添加一辆购物车，并返回true；不为null表示已存在该用户，返回false*/
+        User oneUser = userDao.selectOneRowByUserName(user);
         if (oneUser == null){
             userDao.insertOneRowToUserTable(user);
-            int i = 10/0;
             userDao.insertOneRowToCarTable(user);
-            System.out.println("成功");
             return true;
         }else {
             return false;
@@ -56,7 +54,7 @@ public class UserServiceImpl implements UserService {
     public User ReturnOneUser(String userName) {
         User user = new User();
         user.setUsername(userName);
-        User oneUser = userDao.selectExistOneRowByUserName(user);
+        User oneUser = userDao.selectOneRowByUserName(user);
         return oneUser;
     }
 }

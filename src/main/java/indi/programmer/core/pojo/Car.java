@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 /**购物车实体类*/
 public class Car {
     private Integer car_id;
-    private Integer user_id;
+    private String user_name;
     private Integer total_number;
     private BigDecimal total_price;
 
@@ -13,9 +13,9 @@ public class Car {
     public Car() {
     }
 
-    public Car(Integer car_id, Integer user_id, Integer total_number, BigDecimal total_price) {
+    public Car(Integer car_id, String user_name, Integer total_number, BigDecimal total_price) {
         this.car_id = car_id;
-        this.user_id = user_id;
+        this.user_name = user_name;
         this.total_number = total_number;
         this.total_price = total_price;
     }
@@ -29,12 +29,12 @@ public class Car {
         this.car_id = car_id;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public String getUser_name() {
+        return user_name;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
     public Integer getTotal_number() {
@@ -58,7 +58,7 @@ public class Car {
     public String toString() {
         return "Car{" +
                 "car_id=" + car_id +
-                ", user_id=" + user_id +
+                ", user_name='" + user_name + '\'' +
                 ", total_number=" + total_number +
                 ", total_price=" + total_price +
                 '}';

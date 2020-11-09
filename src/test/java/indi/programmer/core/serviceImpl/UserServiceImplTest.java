@@ -1,6 +1,7 @@
 package indi.programmer.core.serviceImpl;
 
 import indi.programmer.core.BaseTest;
+import indi.programmer.core.pojo.User;
 import indi.programmer.core.service.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,8 @@ public class UserServiceImplTest extends BaseTest {
 
     @Test
     public void login() {
-        userService.login("test","123456");
+        boolean flag = userService.login("test","123456");
+        System.out.println(flag);
     }
 
     @Test
@@ -25,5 +27,7 @@ public class UserServiceImplTest extends BaseTest {
 
     @Test
     public void returnOneUser() {
+        User oneUser = userService.ReturnOneUser("test");
+        System.out.println(oneUser);
     }
 }
