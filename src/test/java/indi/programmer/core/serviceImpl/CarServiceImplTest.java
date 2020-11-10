@@ -18,7 +18,7 @@ public class CarServiceImplTest extends BaseTest {
 
     @Test
     public void addOneGoodToShopCar() {
-        carService.addOneGoodToShopCar("test",3,1);
+        carService.addOneGoodToShopCar("test",8,1);
     }
 
     @Test
