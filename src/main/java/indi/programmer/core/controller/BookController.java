@@ -22,4 +22,28 @@ public class BookController {
     public List<Book> bestSellerList(){
         return bookService.TopTwentySales();
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/searchOneBookInformation",method = RequestMethod.GET)
+    public Book searchOneBookInformation(Integer bookId){
+        return bookService.selectOneBook(bookId);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/searchBooksNumberByMessage",method = RequestMethod.GET)
+    public Integer searchBooksNumberByMessages(String searchBoxMessage){
+        return bookService.searchBooksNumberByBookNameOrAuthor(searchBoxMessage);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/searchBooksByMessage",method = RequestMethod.GET)
+    public List<Book> searchBooksByMessage(String searchBoxMessage,String arrangeMethod,String arrangeField,Integer pageNumber){
+        if ("null".equals(arrangeField)){
+            arrangeField = null;
+        }
+        if ("null".equals(arrangeMethod)){
+            arrangeMethod = null;
+        }
+        return bookService.searchBooksByBookNameOrAuthor(searchBoxMessage,arrangeMethod,arrangeField,pageNumber);
+    }
 }

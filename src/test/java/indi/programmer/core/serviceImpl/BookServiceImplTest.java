@@ -36,7 +36,7 @@ public class BookServiceImplTest extends BaseTest {
 
     @Test
     public void searchBooksByBookNameOrAuthor() {
-        List<Book> bookList = bookService.searchBooksByBookNameOrAuthor("马","desc","book_price",1);
+        List<Book> bookList = bookService.searchBooksByBookNameOrAuthor("马",null,null,1);
         for (Book book:bookList){
             System.out.println(book);
         }

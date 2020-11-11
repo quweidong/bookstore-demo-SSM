@@ -7,7 +7,7 @@ $(function () {
         if ($searchBox.val().trim() === ""){
             $searchButton.attr("href","");
         }else {
-            $searchButton.attr("href","/book_system/pages/major/searchbook.html?searchBoxMessage=" + $searchBox.val().trim());
+            $searchButton.attr("href","static/pages/searchbook.html?searchBoxMessage=" + $searchBox.val().trim());
         }
     }
     /*定义注销用户操作的函数*/
@@ -30,7 +30,7 @@ $(function () {
     $("#userAvatar").click(function () {
         var flag = window.confirm("是否要上传新头像");
         if (flag == true){
-            window.location.href = "/book_system/pages/afterlogin/avatar.html"
+            window.location.href = "static/pages/user/avatar.html"
         }
     })
     /*搜索按钮触发*/

@@ -15,8 +15,11 @@
     </select>
 
     <select id="queryBooksByInformation" resultType="Book">
-        select <include refid="bookInformation" /> from book where book_name like #{inputBook.book_name} or book_author like #{inputBook.book_author} order by ${arrangeField} ${arrangeMethod}
-    </select>
+        select <include refid="bookInformation" /> from book where book_name like #{inputBook.book_name} or book_author like #{inputBook.book_author}
+        <if test="arrange.arrangeField != null and arrange.arrangeMethod != null">
+            order by ${arrange.arrangeField} ${arrange.arrangeMethod}
+        </if>
+</select>
 
     <select id="queryBooksNumberByInformation" resultType="_int">
         select count(*) from book where book_name like #{book_name} or book_author like #{book_author}

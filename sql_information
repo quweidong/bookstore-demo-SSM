@@ -1,0 +1,96 @@
+/*表的结构（反正我的数据库名字叫bookstore）*/
+
+/*书籍信息表*/
+create table if not exists book
+(
+	book_id int auto_increment
+		primary key,
+	book_isbn char(20) null,
+	book_name varchar(50) default '未知' not null,
+	book_author char(50) default '未知' not null,
+	publish_time date not null,
+	publish_house varchar(70) default '未知' not null,
+	page_number int default 0 not null,
+	book_price decimal(9,2) default 99999.00 not null,
+	sales_volume int default 0 not null,
+	book_stock int default 0 not null,
+	img_url char(100) default 'static/images/nobook.jpg' not null,
+	book_introduce varchar(3000) default '无' null,
+	constraint book_book_isbn_uindex
+		unique (book_isbn)
+);
+
+/*用户表*/
+create table if not exists user
+(
+	id int auto_increment
+		primary key,
+	username char(20) not null,
+	password char(20) not null,
+	telephone char(11) null,
+	avatar char(100) default 'static/images/no_user.jpg' not null,
+	email varchar(50) not null,
+	constraint username
+		unique (username)
+);
+
+/*购物车表（一个用户有一辆购物车，一辆购物车只属于一位用户）*/
+create table if not exists car
+(
+	car_id int auto_increment
+		primary key,
+	user_name char(20) not null,
+	total_number int default 0 not null,
+	total_price decimal(9,2) default 0.00 not null,
+	constraint car_user_name_fk
+		foreign key (user_name) references user (username)
+);
+
+/*购物车和书籍的关系表（一个购物车中有多种书籍，一种书籍对应多个购物车）*/
+create table if not exists car_book
+(
+	cb_id int auto_increment
+		primary key,
+	single_number int default 0 not null,
+	single_price decimal(9,2) default 0.00 not null,
+	car_id int null,
+	book_id int null,
+	constraint ucb_book_book_id_fk
+		foreign key (book_id) references book (book_id),
+	constraint ucb_car_car_id_fk
+		foreign key (car_id) references car (car_id)
+);
+
+/*订单表（一个用户对应多个订单，一个订单只属于一位用户）*/
+create table if not exists order_table
+(
+	order_id int auto_increment
+		primary key,
+	order_No char(50) null,
+	order_number int null,
+	order_price decimal(9,2) null,
+	order_address varchar(200) null,
+	order_telephone char(11) null,
+	receiver_name char(50) null,
+	order_status int default 0 not null,
+	user_id int null,
+	constraint order_order_number_uindex
+		unique (order_No),
+	constraint order_user_id_fk
+		foreign key (user_id) references user (id)
+);
+
+/*订单项表（一个订单中有多种书籍，一种书籍对应多个订单）*/
+create table if not exists order_item
+(
+	item_id int auto_increment
+		primary key,
+	book_isbn char(20) null,
+	book_img char(100) null,
+	book_name varchar(50) null,
+	item_number int null,
+	item_price decimal(9,2) null,
+	order_No char(50) null,
+	constraint order_item_order_table_order_No_fk
+		foreign key (order_No) references order_table (order_No)
+);

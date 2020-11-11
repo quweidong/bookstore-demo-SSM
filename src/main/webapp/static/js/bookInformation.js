@@ -27,15 +27,15 @@ $(function () {
     var stock;
     /*截取地址栏字符串，将id后面的值截取出来*/
     var bookId = windowLocalStorage.split("?")[1].split("=")[1];
-    $.get("http://10.84.198.103:8080/book_system/BookServlet","action=bookInformation&bookId="+bookId,function (data) {
+    $.get("searchOneBookInformation","bookId="+bookId,function (data) {
         if (data != null){
             stock = data.stock;
             $("#bookInformationImg").attr("src",data.img_url)
             $("#bookInformationName").text(data.book_name);
             $("#bookInformationAuthor").html("<span style='color: gray'>作者：</span>"+data.book_author);
-            $("#bookInformationPrice").html("<span style='color: gray'>售价：</span>"+"<span style='color: red;font-size: 40px'>￥"+data.price+"</span>");
+            $("#bookInformationPrice").html("<span style='color: gray'>售价：</span>"+"<span style='color: red;font-size: 40px'>￥"+data.book_price+"</span>");
             $("#bookInformationSales").html("<span style='color: gray'>销量：</span>"+data.sales_volume);
-            $("#bookInformationStock").html("<span style='color: gray'>库存："+data.stock+"</span>");
+            $("#bookInformationStock").html("<span style='color: gray'>库存："+data.book_stock+"</span>");
             $("#pageNumber").text("页数："+data.page_number);
             $("#bookIsbn").text("ISBN："+data.book_isbn);
             $("#bookName").text("书名："+data.book_name);

@@ -30,7 +30,7 @@ $(function () {
                 $bookName1[i].innerHTML = "<center>" + data[i].book_name + "</center>";
                 $bookPrice1[i].innerText = "￥" + data[i].book_price;
                 $bookSales1[i].innerText = "已卖出" + data[i].sales_volume + "件";
-                $showHotSalesBooksLink[i].href = "/static/pages/major/book_information.html?bookId="+data[i].book_id;
+                $showHotSalesBooksLink[i].href = "static/pages/book_information.html?bookId="+data[i].book_id;
             }
         }
     },"json");

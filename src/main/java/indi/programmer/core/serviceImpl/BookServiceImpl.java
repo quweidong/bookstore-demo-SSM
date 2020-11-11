@@ -2,6 +2,7 @@ package indi.programmer.core.serviceImpl;
 
 import com.github.pagehelper.PageHelper;
 import indi.programmer.core.dao.BookDao;
+import indi.programmer.core.pojo.Arrange;
 import indi.programmer.core.pojo.Book;
 import indi.programmer.core.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,10 +45,13 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> searchBooksByBookNameOrAuthor(String bookNameOrAuthor, String arrangeMethod, String arrangeField, Integer pageNumber) {
         Book book = new Book();
+        Arrange arrange = new Arrange();
         book.setBook_author("%"+bookNameOrAuthor+"%");
         book.setBook_name("%"+bookNameOrAuthor+"%");
+        arrange.setArrangeField(arrangeField);
+        arrange.setArrangeMethod(arrangeMethod);
         PageHelper.startPage(pageNumber,10);
-        List<Book> bookList = bookDao.queryBooksByInformation(book,arrangeMethod,arrangeField);
+        List<Book> bookList = bookDao.queryBooksByInformation(book,arrange);
         return bookList;
     }
 }
