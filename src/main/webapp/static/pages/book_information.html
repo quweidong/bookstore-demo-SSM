@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情信息</title>
+    <base href="/bookstore/">
+    <link rel="stylesheet" type="text/css" href="static/css/head_inserted.css">
+    <link rel="stylesheet" type="text/css" href="static/css/bookInformation.css">
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/headPart.js"></script>
+    <script src="static/js/bookInformation.js"></script>
+</head>
+<body>
+<!--固定头部-->
+<div id="headDiv">
+    <img id="userAvatar" src="static/images/no_user.jpg"/><span id="head_span_1"><a href="static/pages/login.html">登录</a>&nbsp;|&nbsp;<a href="#">免费注册</a></span>
+    <span id="head_span_2"><a href="static/pages/user/shop_car.html">我的购物车</a>&nbsp;|&nbsp;<a href="static/pages/user/order.html">我的订单</a>&nbsp;|&nbsp;<a href="#">联系客服</a></span>
+</div>
+<!--搜索框和购物车-->
+<div id="head_div_2">
+    <div id="head_div_3">
+        <input type="text" id="search_box" name="searchBox" placeholder="请根据书名或者作者名进行搜索">
+        <a target="_self" id="searchButton"><img src="static/images/search.jpg"/></a>
+    </div>
+</div>
+<!--快速导航-->
+<div id="head_div_5">
+    <ul id = "nav">
+        <li><a href="">首页</a></li>
+        <li><a href="#">暂无</a></li>
+        <li><a href="#">暂无</a></li>
+        <li><a href="#">暂无</a></li>
+    </ul>
+</div>
+<div id="line"></div>
+<!--到这里相对整个页面是223px-->
+<!--固定头部结束-->
+<div id="bookInformation">
+    <img id="bookInformationImg">
+    <p id="bookInformationName"></p>
+    <span id="bookInformationAuthor"></span>
+    <span id="bookInformationPrice"></span>
+    <span id="bookInformationSales"></span>
+    <span id="bookInformationBuyCount">数量：<input type="button" value="-"><input type="text" value="1"><input type="button" value="+"></span>
+    <span id="bookInformationStock"></span>
+    <span id="bookInformationBuy"><input type="button" value="立即购买">&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" value="加入购物车"></span>
+</div>
+<div id="bookInformationDetail">
+    <span id="detailNav">商品详情</span>
+    <table id="detailInformation">
+        <tr>
+            <td><span id="pageNumber">页数</span></td>
+            <td><span id="bookIsbn">ISBN</span></td>
+            <td><span id="bookName">书名</span></td>
+        </tr>
+        <tr>
+            <td><span id="publishHouse">出版地</span></td>
+            <td><span id="publishTime">出版日期</span></td>
+            <td><span id="bookAuthor">作者</span></td>
+        </tr>
+    </table>
+</div>
+<div id="bookInformationIntroduce">
+    <span id="introduceNav">内容提要</span>
+    <span id="bookIntroduce"></span>
+</div>
+</body>
+</html>

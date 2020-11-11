@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="static/css/shop_car.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="static/css/head_inserted.css">
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/headPart.js"></script>
+    <script src="static/js/shop_car.js"></script>
+</head>
+<body>
+<!--固定头部-->
+<div id="headDiv">
+    <img id="userAvatar" src="static/images/no_user.jpg"/><span id="head_span_1"><a href="static/pages/login.html">登录</a>&nbsp;|&nbsp;<a href="#">免费注册</a></span>
+    <span id="head_span_2"><a href="static/pages/user/shop_car.html">我的购物车</a>&nbsp;|&nbsp;<a href="static/pages/user/order.html">我的订单</a>&nbsp;|&nbsp;<a href="#">联系客服</a></span>
+</div>
+<!--搜索框和购物车-->
+<div id="head_div_2">
+    <div id="head_div_3">
+        <input type="text" id="search_box" name="searchBox" placeholder="请根据书名或者作者名进行搜索">
+        <a target="_self" id="searchButton"><img src="static/images/search.jpg"/></a>
+    </div>
+</div>
+<!--快速导航-->
+<div id="head_div_5">
+    <ul id = "nav">
+        <li><a href="">首页</a></li>
+        <li><a href="#">暂无</a></li>
+        <li><a href="#">暂无</a></li>
+        <li><a href="#">暂无</a></li>
+    </ul>
+</div>
+<div id="line"></div>
+<!--到这里相对整个页面是223px-->
+<!--固定头部结束-->
+<div id="shopCarMessage">
+    <span id="shopCarResult">我的购物车</span>
+</div>
+<!--查询到的全部书籍的排序导航-->
+<div id="carNav">
+    <span id="carNav1">商品信息</span><span id="carNav2">单价</span><span id="carNav3">数量</span><span id="carNav4">总金额</span><span id="carNav5">操作</span>
+</div>
+<!--查询到的全部书籍排列-->
+<table id="carList">
+    <tr>
+        <td>
+            <div class="carItem">
+                <img class="carItemImg">
+                <span class="carItemName"></span>
+                <span class="carItemAuthor"></span>
+                <span class="carItemSinglePrice"></span>
+                <span class="carItemNumber"><span class="carItemInputNumber"></span></span>
+                <span class="carItemTotalPrice"></span>
+                <input type="button" class="carItemButton" value="移除" onclick="deleteItem($('.hiddenPart')[0].value)">
+                <input class="hiddenPart" type="hidden">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="carItem">
+                <img class="carItemImg">
+                <span class="carItemName"></span>
+                <span class="carItemAuthor"></span>
+                <span class="carItemSinglePrice"></span>
+                <span class="carItemNumber"><span class="carItemInputNumber"></span></span>
+                <span class="carItemTotalPrice"></span>
+                <input type="button" class="carItemButton" value="移除" onclick="deleteItem($('.hiddenPart')[1].value)">
+                <input class="hiddenPart" type="hidden">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="carItem">
+                <img class="carItemImg">
+                <span class="carItemName"></span>
+                <span class="carItemAuthor"></span>
+                <span class="carItemSinglePrice"></span>
+                <span class="carItemNumber"><span class="carItemInputNumber"></span></span>
+                <span class="carItemTotalPrice"></span>
+                <input type="button" class="carItemButton" value="移除" onclick="deleteItem($('.hiddenPart')[2].value)">
+                <input class="hiddenPart" type="hidden">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="carItem">
+                <img class="carItemImg">
+                <span class="carItemName"></span>
+                <span class="carItemAuthor"></span>
+                <span class="carItemSinglePrice"></span>
+                <span class="carItemNumber"><span class="carItemInputNumber"></span></span>
+                <span class="carItemTotalPrice"></span>
+                <input type="button" class="carItemButton" value="移除" onclick="deleteItem($('.hiddenPart')[3].value)">
+                <input class="hiddenPart" type="hidden">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="carItem">
+                <img class="carItemImg">
+                <span class="carItemName"></span>
+                <span class="carItemAuthor"></span>
+                <span class="carItemSinglePrice"></span>
+                <span class="carItemNumber"><span class="carItemInputNumber"></span></span>
+                <span class="carItemTotalPrice"></span>
+                <input type="button" class="carItemButton" value="移除" onclick="deleteItem($('.hiddenPart')[4].value)">
+                <input class="hiddenPart" type="hidden">
+            </div>
+        </td>
+    </tr>
+</table>
+<div id="carPage">
+    <div id="carShowPages"><input type="button" id="lastPage" value="<上一页">&nbsp;<input type="button" id="nextPage" value="下一页>">&nbsp;<span id="currentPage"></span>/</span><span id="summaryPage"></span></div>
+</div>
+<div id="pay">
+    <span id="goodsSum"></span><span id="buyPrice"></span><input id="goToPay" value="付款" type="button">
+</div>
+</body>
+</html>

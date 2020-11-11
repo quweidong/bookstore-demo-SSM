@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>书城注册</title>
+    <base href="/bookstore/">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color:whitesmoke;
+        }
+        #register_form{
+            background-color:white;
+            width: 500px;
+            height:380px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -o-border-radius: 10px;
+            filter:alpha(opacity=80);
+            opacity:0.80;
+        }
+        #form{
+            position: absolute;
+            left:120px;
+            top: 80px;
+            font-size: 20px;
+        }
+        input[class="box"]:focus{
+            border-style:solid;
+            border-color: #03a9f4;
+            box-shadow: 0 0 1px #03a9f4;
+        }
+        #word{
+            font-size: 20px;
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            font-weight: normal;
+        }
+        #error_word{
+            font-size: 16px;
+            position: absolute;
+            left: 330px;
+            top: 15px;
+            color: red;
+        }
+        .box{
+            position: absolute;
+            height: 35px;
+            width: 260px;
+            border-radius: 5px;
+            border:1px solid lightgray;
+            outline: none;
+            font-size: 17px;
+        }
+        .register_button{
+            position: absolute;
+            width: 260px;
+            height: 35px;
+            cursor: pointer;
+            background-color: #03a9f4;
+            border: none;
+            font-size: 19px;
+            color: white;
+            outline: none;
+        }
+        #item{
+            font-size: 13px;
+            position: absolute;
+            left: 370px;
+            bottom: 10px;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+    <script src="static/javascript/jquery.js"></script>
+    <script src="static/javascript/user/register.js"></script>
+
+</head>
+<body>
+<div id="register_form">
+    <span id="word">请注册!</span><span id="error_word"></span>
+    <form action="/book_system/UserServlet" method="post" id="form">
+        <input class="box" type="text" name="username" placeholder="用户名">
+        <br><br>
+        <input class="box" type="password" name="user_password" placeholder="密码">
+        <br><br>
+        <input class="box" type="password" name="user_password_confirm" placeholder="确认密码">
+        <br><br>
+        <input class="box" type="text" name="email" placeholder="电子邮件">
+        <br><br>
+        <!--先将按钮设置为button，在js中根据情况将其该为submit-->
+        <input type="button" value="注 册" class="register_button">
+        <!--设置注册界面的隐藏域，便于在Servlet程序中判断是哪个页面-->
+        <input type="hidden" name="hiddenPart" value="register">
+    </form>
+    <span id="item"><a href="login.html">去登录--></a></span>
+</div>
+</body>
+</html>

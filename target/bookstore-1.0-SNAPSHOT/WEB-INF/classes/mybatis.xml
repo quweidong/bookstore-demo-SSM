@@ -14,4 +14,8 @@
         <!--实体类所在的包名-->
         <package name="indi.programmer.core.pojo"/>
     </typeAliases>
+    <!--配置分页的插件-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
 </configuration>

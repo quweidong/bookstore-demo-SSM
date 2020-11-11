@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择收货信息</title>
+    <base href="/bookstore/">
+    <script src="static/js/pca.js">//三级联动代码</script>
+    <script src="static/js/province.js">//省数据数组</script>
+    <script src="static/js/city.js">//市数据数组</script>
+    <script src="static/js/area.js">//县数据数组</script>
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/receipt_information_car.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/receipt_information.css">
+</head>
+<body>
+    <div id="takeGoodsAddress">配送地区：&nbsp;&nbsp;&nbsp;&nbsp;
+        <select id="province">
+            <option value="0">请选择</option>
+        </select>
+        省
+        <select id="city">
+            <option value="0">请选择</option>
+        </select>
+        市
+        <select id="area">
+            <option value="0">请选择</option>
+        </select>
+        县（区）
+        <span id="pca"></span>
+        <span id="detail">详细地址：</span>
+        <textarea id="detailAddress"></textarea>
+        <a id="returnCar" href="/book_system/pages/afterlogin/shop_car.html">返回购物车</a>
+        <input id="confirmAddress" value="确定" type="button">
+    </div>
+</body>
+</html>

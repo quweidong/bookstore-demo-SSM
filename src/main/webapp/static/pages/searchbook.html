@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百草书城</title>
+    <base href="/bookstore/" >
+    <link rel="stylesheet" href="static/css/searchbook.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="static/css/head_inserted.css">
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/headPart.js"></script>
+    <script src="static/js/searchbook.js"></script>
+</head>
+<body>
+    <!--固定头部-->
+    <div id="headDiv">
+        <img id="userAvatar" src="static/images/no_user.jpg"/><span id="head_span_1"><a href="static/pages/login.html">登录</a>&nbsp;|&nbsp;<a href="#">免费注册</a></span>
+        <span id="head_span_2"><a href="static/pages/user/shop_car.html">我的购物车</a>&nbsp;|&nbsp;<a href="static/pages/user/order.html">我的订单</a>&nbsp;|&nbsp;<a href="#">联系客服</a></span>
+    </div>
+    <!--搜索框和购物车-->
+    <div id="head_div_2">
+        <div id="head_div_3">
+            <input type="text" id="search_box" name="searchBox" placeholder="请根据书名或者作者名进行搜索">
+            <a target="_self" id="searchButton"><img src="static/images/search.jpg"/></a>
+        </div>
+    </div>
+    <!--快速导航-->
+    <div id="head_div_5">
+        <ul id = "nav">
+            <li><a href="/book_system/">首页</a></li>
+            <li><a href="#">暂无</a></li>
+            <li><a href="#">暂无</a></li>
+            <li><a href="#">暂无</a></li>
+        </ul>
+    </div>
+    <div id="line"></div>
+    <!--到这里相对整个页面是223px-->
+    <!--固定头部结束-->
+    <div id="searchBookMessage">
+        <span id="searchBooksResult"></span>
+    </div>
+    <!--查询到的全部书籍的排序导航-->
+    <div id="booksSort">
+        <span id="booksSortNav"><input id="searchBooksSynthesis" type="button" value="综合">&nbsp;<input id="searchBooksByPrice" type="button" value="价格从低到高">&nbsp;<input id="searchBooksByVolume" type="button" value="销量从高到低"></span>
+    </div>
+    <!--查询到的全部书籍排列-->
+    <table id="searchBooksList">
+        <tr>
+            <td>
+                <div class="searchBookDiv">
+                    <a class="searchBookLink" target="_blank"><img class="searchBookImg"></a>
+                    <a class="searchBookName"></a>
+                    <span class="searchBookAuthor"></span>
+                    <span class="searchBookPublishHouse"></span>
+                    <span class="searchBookPublishTime"></span>
+                    <span class="searchBookSales"></span>
+                    <span class="searchBookPrice"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="searchBookDiv">
+                    <a class="searchBookLink" target="_blank"><img class="searchBookImg"></a>
+                    <a class="searchBookName"></a>
+                    <span class="searchBookAuthor"></span>
+                    <span class="searchBookPublishHouse"></span>
+                    <span class="searchBookPublishTime"></span>
+                    <span class="searchBookSales"></span>
+                    <span class="searchBookPrice"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="searchBookDiv">
+                    <a class="searchBookLink" target="_blank"><img class="searchBookImg"></a>
+                    <a class="searchBookName"></a>
+                    <span class="searchBookAuthor"></span>
+                    <span class="searchBookPublishHouse"></span>
+                    <span class="searchBookPublishTime"></span>
+                    <span class="searchBookSales"></span>
+                    <span class="searchBookPrice"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="searchBookDiv">
+                    <a class="searchBookLink" target="_blank"><img class="searchBookImg"></a>
+                    <a class="searchBookName"></a>
+                    <span class="searchBookAuthor"></span>
+                    <span class="searchBookPublishHouse"></span>
+                    <span class="searchBookPublishTime"></span>
+                    <span class="searchBookSales"></span>
+                    <span class="searchBookPrice"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="searchBookDiv">
+                    <a class="searchBookLink" target="_blank"><img class="searchBookImg"></a>
+                    <a class="searchBookName"></a>
+                    <span class="searchBookAuthor"></span>
+                    <span class="searchBookPublishHouse"></span>
+                    <span class="searchBookPublishTime"></span>
+                    <span class="searchBookSales"></span>
+                    <span class="searchBookPrice"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="searchBookDiv">
+                    <a class="searchBookLink" target="_blank"><img class="searchBookImg"></a>
+                    <a class="searchBookName"></a>
+                    <span class="searchBookAuthor"></span>
+                    <span class="searchBookPublishHouse"></span>
+                    <span class="searchBookPublishTime"></span>
+                    <span class="searchBookSales"></span>
+                    <span class="searchBookPrice"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="searchBookDiv">
+                    <a class="searchBookLink" target="_blank"><img class="searchBookImg"></a>
+                    <a class="searchBookName"></a>
+                    <span class="searchBookAuthor"></span>
+                    <span class="searchBookPublishHouse"></span>
+                    <span class="searchBookPublishTime"></span>
+                    <span class="searchBookSales"></span>
+                    <span class="searchBookPrice"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="searchBookDiv">
+                    <a class="searchBookLink" target="_blank"><img class="searchBookImg"></a>
+                    <a class="searchBookName"></a>
+                    <span class="searchBookAuthor"></span>
+                    <span class="searchBookPublishHouse"></span>
+                    <span class="searchBookPublishTime"></span>
+                    <span class="searchBookSales"></span>
+                    <span class="searchBookPrice"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="searchBookDiv">
+                    <a class="searchBookLink" target="_blank"><img class="searchBookImg"></a>
+                    <a class="searchBookName"></a>
+                    <span class="searchBookAuthor"></span>
+                    <span class="searchBookPublishHouse"></span>
+                    <span class="searchBookPublishTime"></span>
+                    <span class="searchBookSales"></span>
+                    <span class="searchBookPrice"></span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="searchBookDiv">
+                    <a class="searchBookLink" target="_blank"><img class="searchBookImg"></a>
+                    <a class="searchBookName"></a>
+                    <span class="searchBookAuthor"></span>
+                    <span class="searchBookPublishHouse"></span>
+                    <span class="searchBookPublishTime"></span>
+                    <span class="searchBookSales"></span>
+                    <span class="searchBookPrice"></span>
+                </div>
+            </td>
+        </tr>
+    </table>
+<div id="searchBookPage">
+    <div id="searchBookShowPages"><input type="button" id="lastPage" value="<上一页">&nbsp;<input type="button" id="nextPage" value="下一页>">&nbsp;<span id="currentPage"></span>/</span><span id="summaryPage"></span></div>
+</div>
+</body>
+</html>

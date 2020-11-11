@@ -1,0 +1,74 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    background-color: #f1fafc;
+    overflow-x: hidden;
+}
+#takeGoodsAddress{
+    position: absolute;
+    width: 530px;
+    height: 270px;
+}
+#province{
+    width: 100px;
+    height: 25px;
+    outline: none;
+}
+#city{
+    width: 100px;
+    height: 25px;
+    outline: none;
+}
+#area{
+    width: 100px;
+    height: 25px;
+    outline: none;
+}
+#pca{
+    position: absolute;
+    top: 40px;
+    left: 105px;
+    color: gray;
+}
+#detail{
+    position: absolute;
+    left: 0px;
+    top: 80px;
+}
+#detailAddress{
+    position: absolute;
+    left: 105px;
+    top: 80px;
+    width: 400px;
+    height: 120px;
+    outline: none;
+    font-size: 18px;
+    resize: none;
+}
+#returnCar{
+    position: absolute;
+    top: 220px;
+    left: 105px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#returnCar:hover{
+    color: indianred;
+}
+#confirmAddress{
+    position: absolute;
+    height: 40px;
+    width: 80px;
+    top: 220px;
+    left: 425px;
+    background-color: #62c5e5;
+    font-size: 20px;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

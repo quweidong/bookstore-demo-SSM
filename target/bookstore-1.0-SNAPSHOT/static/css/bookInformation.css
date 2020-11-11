@@ -1,0 +1,144 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    background-color: white;
+    overflow-x: hidden;
+}
+#bookInformation{
+    position: relative;
+    top: 223px;
+    left: 12.5%;
+    background-color: white;
+    border-bottom:solid lightgray 1px;
+}
+#bookInformationImg{
+    position: absolute;
+    width: 26%;
+    height: 70%;
+    top: 5%;
+}
+#bookInformationName{
+    font-size: 23px;
+    position: absolute;
+    top: 5%;
+    left: 35%;
+}
+#bookInformationAuthor{
+    position: absolute;
+    top: 16%;
+    left: 35%;
+}
+#bookInformationPrice{
+    position: absolute;
+    top: 30%;
+    left: 35%;
+}
+/*销量*/
+#bookInformationSales{
+    position: absolute;
+    top: 45%;
+    left: 35%;
+}
+#bookInformationBuyCount{
+    position: absolute;
+    top: 54%;
+    left: 35%;
+    float: left;
+}
+#bookInformationBuyCount input:first-child{
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid lightgray;
+    background-color: white;
+    outline: none;
+}
+#bookInformationBuyCount input:nth-child(2){
+    font-size: 20px;
+    width: 70px;
+    height: 28px;
+    border: 1px solid lightgray;
+    background-color: white;
+    outline: none;
+}
+#bookInformationBuyCount input:last-child{
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid lightgray;
+    background-color: white;
+    outline: none;
+}
+#bookInformationStock{
+    position: absolute;
+    left: 55%;
+    top: 55%;
+}
+#bookInformationBuy{
+    position: absolute;
+    left: 35%;
+    top: 65%;
+}
+#bookInformationBuy input:first-child{
+    font-size: 18px;
+    width: 150px;
+    height: 40px;
+    background-color: #03a9f4;
+    border: none;
+    outline: none;
+    cursor:pointer;
+}
+#bookInformationBuy input:last-child{
+    font-size: 18px;
+    width: 150px;
+    height: 40px;
+    background-color: aliceblue;
+    border: 1px solid dodgerblue;
+    outline: none;
+    cursor:pointer;
+}
+/*书籍详细信息*/
+#bookInformationDetail{
+    position: absolute;
+    left: 12.5%;
+    height: 200px;
+    background-color: white;
+    border-bottom:solid lightgray 1px;
+}
+#detailNav{
+    position: absolute;
+    font-size: 18px;
+    color: gray;
+    background-color: #f1fafc;
+    width: 100%;
+    height: 30px;
+}
+#detailInformation{
+    width: 100%;
+    height: 120px;
+    position: absolute;
+    top: 70px;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+#bookInformationIntroduce{
+    position: absolute;
+    left: 12.5%;
+    width: 100%;
+    height: 400px;
+    background-color: white;
+}
+#introduceNav{
+    position: absolute;
+    font-size: 18px;
+    color: gray;
+    background-color: #f1fafc;
+    width: 100%;
+    height: 30px;
+}
+#bookIntroduce{
+    position: absolute;
+    top: 30px;
+}

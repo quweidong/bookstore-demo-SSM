@@ -1,0 +1,136 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    background-color: #f1fafc;
+    overflow-x: hidden;
+}
+#orderMessage{
+    position: absolute;
+    top: 223px;
+    height: 30px;
+    width: 100%;
+    background-color: white;
+}
+#orderResult{
+    position: absolute;
+    left: 12.5%;
+    font-size: 20px;
+    color:red;
+    bottom: 0px;
+}
+#orderNav{
+    position: absolute;
+    top: 253px;
+    left: 12.5%;
+    height: 40px;
+    background-color: whitesmoke;
+}
+#orderNav1{
+    position: absolute;
+    bottom: 6px;
+    font-size: 22px;
+    left: 5%;
+}
+#orderNav2{
+    position: absolute;
+    bottom: 6px;
+    font-size: 22px;
+    left: 25%;
+}
+#orderNav3{
+    position: absolute;
+    bottom: 6px;
+    font-size: 22px;
+    left: 40%;
+}
+#orderNav4{
+    position: absolute;
+    bottom: 6px;
+    font-size: 22px;
+    left: 55%;
+}
+#orderNav5{
+    position: absolute;
+    bottom: 6px;
+    font-size: 22px;
+    left: 80%;
+}
+#orderList{
+    top: 293px;
+    left: 12.5%;
+    position: absolute;
+    background-color: white;
+}
+/*每一项的div*/
+.orderItem{
+    position:relative;
+    width: 100%;
+    height: 100px;
+    background-color:white;
+}
+/*订单号*/
+.orderNo{
+    position: absolute;
+    left: 5%;
+    line-height: 100px;
+    font-size: 20px;
+}
+/*订单中商品总数量*/
+.orderNumber{
+    position:absolute;
+    left: 25%;
+    line-height: 100px;
+    font-size: 20px;
+}
+/*订单总价格*/
+.orderPrice{
+    position: absolute;
+    left: 40%;
+    line-height: 100px;
+    font-size: 20px;
+}
+/*订单收货地址*/
+.orderAddress{
+    position: absolute;
+    top: 43px;
+    left: 55%;
+    font-weight: bold;
+    width: 20%;
+    font-size: 13px;
+    word-break:normal;
+    display:block;
+    white-space:pre-wrap;
+    word-wrap : break-word ;
+    overflow: hidden;
+}
+/*每一项的数量*/
+.orderStatus{
+    position: absolute;
+    left: 80%;
+    line-height: 100px;
+    font-size: 20px;
+}
+.orderButton{
+    position: absolute;
+    left: 90%;
+    bottom: 35px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: white;
+    outline: none;
+    border: none;
+}
+#noOrder{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: red;
+    font-size: 30px;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

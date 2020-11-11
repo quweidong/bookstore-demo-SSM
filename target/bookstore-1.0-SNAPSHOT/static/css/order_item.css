@@ -1,0 +1,97 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    background-color: #f1fafc;
+    overflow-x: hidden;
+}
+#orderItemMessage{
+    position: absolute;
+    top: 223px;
+    height: 30px;
+    width: 100%;
+    background-color: white;
+}
+#orderItemResult{
+    position: absolute;
+    left: 12.5%;
+    font-size: 20px;
+    color:red;
+    bottom: 0px;
+}
+#orderItemNav{
+    position: absolute;
+    top: 253px;
+    left: 12.5%;
+    height: 40px;
+    background-color: whitesmoke;
+}
+#orderItemNav1{
+    position: absolute;
+    bottom: 6px;
+    font-size: 22px;
+    left: 10%;
+}
+#orderItemNav2{
+    position: absolute;
+    bottom: 6px;
+    font-size: 22px;
+    left: 50%;
+}
+#orderItemNav3{
+    position: absolute;
+    bottom: 6px;
+    font-size: 22px;
+    left: 70%;
+}
+#orderItemList{
+    top: 293px;
+    left: 12.5%;
+    position: absolute;
+    background-color: white;
+}
+/*每一项的div*/
+.itemDetail{
+    position:relative;
+    width: 100%;
+    height: 140px;
+    background-color:white;
+}
+/*图片*/
+.itemImg{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 10%;
+    top: 20px;
+}
+/*商品名称*/
+.itemName{
+    position:absolute;
+    left: 25%;
+    top: 50px;
+    width: 10%;
+    font-size: 16px;
+    font-family: 华文宋体;
+    font-weight: bold;
+    word-break:normal;
+    display:block;
+    white-space:pre-wrap;
+    word-wrap : break-word ;
+    overflow: hidden;
+}
+/*该项总数量*/
+.itemNumber{
+    position:absolute;
+    left: 50%;
+    line-height: 140px;
+    font-size: 20px;
+}
+/*该项总价格*/
+.itemPrice{
+    position: absolute;
+    left: 70%;
+    line-height: 140px;
+    font-size: 20px;
+}

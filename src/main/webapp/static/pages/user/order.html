@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+    <link rel="stylesheet" href="static/css/order.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="static/css/head_inserted.css">
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/headPart.js"></script>
+    <script src="static/js/order.js"></script>
+</head>
+<body>
+<!--固定头部-->
+<div id="headDiv">
+    <img id="userAvatar" src="static/images/no_user.jpg"/><span id="head_span_1"><a href="static/pages/login.html">登录</a>&nbsp;|&nbsp;<a href="#">免费注册</a></span>
+    <span id="head_span_2"><a href="static/pages/user/shop_car.html">我的购物车</a>&nbsp;|&nbsp;<a href="static/pages/user/order.html">我的订单</a>&nbsp;|&nbsp;<a href="#">联系客服</a></span>
+</div>
+<!--搜索框和购物车-->
+<div id="head_div_2">
+    <div id="head_div_3">
+        <input type="text" id="search_box" name="searchBox" placeholder="请根据书名或者作者名进行搜索">
+        <a target="_self" id="searchButton"><img src="static/images/search.jpg"/></a>
+    </div>
+</div>
+<!--快速导航-->
+<div id="head_div_5">
+    <ul id = "nav">
+        <li><a href="">首页</a></li>
+        <li><a href="#">暂无</a></li>
+        <li><a href="#">暂无</a></li>
+        <li><a href="#">暂无</a></li>
+    </ul>
+</div>
+<div id="line"></div>
+<!--到这里相对整个页面是223px-->
+<!--固定头部结束-->
+<div id="orderMessage">
+    <span id="orderResult">我的订单</span>
+</div>
+<!--查询到的全部订单的目录-->
+<div id="orderNav">
+    <span id="orderNav1">订单号</span><span id="orderNav2">商品总数</span><span id="orderNav3">订单总价</span><span id="orderNav4">收货地</span><span id="orderNav5">状态</span>
+</div>
+<!--查询到的全部订单排列-->
+<div id="orderList">
+
+</div>
+<span id="noOrder">暂无订单！</span>
+</body>
+</html>
