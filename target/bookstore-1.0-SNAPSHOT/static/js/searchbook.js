@@ -71,19 +71,19 @@ $(function () {
     $("#lastPage").click(function () {
         hideElement();
         if (flag == 1){
-            synthesis("searchBooksByPages",null,--pageNumber);
+            synthesis(null,null,--pageNumber);
             $("#currentPage").text(pageNumber);
         }else if (flag == 2){
-            synthesis("searchBooksByPagesOrderByPrice","asc",--pageNumber);
+            synthesis("asc","book_price",--pageNumber);
             $("#currentPage").text(pageNumber);
         }else if (flag == 3){
-            synthesis("searchBooksByPagesOrderByPrice","desc",--pageNumber)
+            synthesis("desc","book_price",--pageNumber)
             $("#currentPage").text(pageNumber);
         }else if (flag == 4){
-            synthesis("searchBooksByPagesOrderByVolume","desc",--pageNumber);
+            synthesis("desc","sales_volume",--pageNumber);
             $("#currentPage").text(pageNumber);
         }else {
-            synthesis("searchBooksByPagesOrderByVolume","asc",--pageNumber);
+            synthesis("asc","sales_volume",--pageNumber);
             $("#currentPage").text(pageNumber);
         }
         if (1 == pageNumber){
@@ -94,19 +94,19 @@ $(function () {
     $("#nextPage").click(function () {
         hideElement();
         if (flag == 1){
-            synthesis("searchBooksByPages",null,++pageNumber);
+            synthesis(null,null,++pageNumber);
             $("#currentPage").text(pageNumber);
         }else if (flag == 2){
-            synthesis("searchBooksByPagesOrderByPrice","asc",++pageNumber);
+            synthesis("asc","book_price",++pageNumber);
             $("#currentPage").text(pageNumber);
         }else if (flag == 3){
-            synthesis("searchBooksByPagesOrderByPrice","desc",++pageNumber)
+            synthesis("desc","book_price",++pageNumber)
             $("#currentPage").text(pageNumber);
         }else if (flag == 4){
-            synthesis("searchBooksByPagesOrderByVolume","desc",++pageNumber);
+            synthesis("desc","sales_volume",++pageNumber);
             $("#currentPage").text(pageNumber);
         }else {
-            synthesis("searchBooksByPagesOrderByVolume","asc",++pageNumber);
+            synthesis("asc","sales_volume",++pageNumber);
             $("#currentPage").text(pageNumber);
         }
         if (parseInt($("#summaryPage")[0].innerText) == pageNumber){
@@ -120,7 +120,7 @@ $(function () {
         flag = 1;
         pageNumber = 1;
         $("#currentPage").text(pageNumber);
-        synthesis("searchBooksByPages",null,pageNumber);
+        synthesis(null,null,pageNumber);
         $("#lastPage").attr({"disabled":true});
         if (parseInt($("#summaryPage")[0].innerText) != 1){
             $("#nextPage").attr({"disabled":false});
@@ -134,7 +134,7 @@ $(function () {
             /*当点击价格从低到高时*/
             flag = 2;
             $("#searchBooksByPrice").val("价格从高到低");
-            synthesis("searchBooksByPagesOrderByPrice","asc",pageNumber);
+            synthesis("asc","book_price",pageNumber);
             $("#lastPage").attr({"disabled":true});
             if (parseInt($("#summaryPage")[0].innerText) != 1){
                 $("#nextPage").attr({"disabled":false});
@@ -143,7 +143,7 @@ $(function () {
             /*当点击价格从高到低时*/
             flag = 3;
             $("#searchBooksByPrice").val("价格从低到高");
-            synthesis("searchBooksByPagesOrderByPrice","desc",pageNumber);
+            synthesis("desc","book_price",pageNumber);
             $("#lastPage").attr({"disabled":true});
             if (parseInt($("#summaryPage")[0].innerText) != 1){
                 $("#nextPage").attr({"disabled":false});
@@ -158,7 +158,7 @@ $(function () {
             /*当点击销量从高到低时*/
             flag = 4;
             $("#searchBooksByVolume").val("销量从低到高");
-            synthesis("searchBooksByPagesOrderByVolume","desc",pageNumber);
+            synthesis("desc","sales_volume",pageNumber);
             $("#lastPage").attr({"disabled":true});
             if (parseInt($("#summaryPage")[0].innerText) != 1){
                 $("#nextPage").attr({"disabled":false});
@@ -167,7 +167,7 @@ $(function () {
             /*当点击销量从低到高时*/
             flag = 5;
             $("#searchBooksByVolume").val("销量从高到低");
-            synthesis("searchBooksByPagesOrderByVolume","asc",pageNumber);
+            synthesis("asc","sales_volume",pageNumber);
             $("#lastPage").attr({"disabled":true});
             if (parseInt($("#summaryPage")[0].innerText) != 1){
                 $("#nextPage").attr({"disabled":false});

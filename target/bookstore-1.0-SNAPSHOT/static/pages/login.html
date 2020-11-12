@@ -115,17 +115,17 @@
     <div id="login_form">
         <span id="word">请登录!</span>
         <span id="error_word"></span>
-        <form action="/book_system/UserServlet" method="post" id="form">
-            <input class="box" type="text" name="username" placeholder=" 用户名">
+        <form action="login" method="post" id="form">
+            <input class="box" type="text" name="userName" placeholder=" 用户名">
             <br><br>
-            <input class="box" type="password" name="user_password" placeholder=" 密码">
+            <input class="box" type="password" name="password" placeholder=" 密码">
             <br><br>
-            <input class="code_box" type="text" name="captcha_code" placeholder=" 验证码" ><img class="code_img" src="/book_system/CodeServlet">
+            <input class="code_box" type="text" name="code" placeholder=" 验证码" ><img class="code_img" src="CodeServlet">
             <br><br>
             <input type="button" value="登 录" class="login_button">
             <input type="hidden" name="hiddenPart" value="login">
         </form>
-        <span id="item"><a href="register.html">注册新账号</a>&nbsp;|&nbsp;<a href="#">忘记密码?</a></span>
+        <span id="item"><a href="static/pages/register.html">注册新账号</a>&nbsp;|&nbsp;<a href="#">忘记密码?</a></span>
     </div>
 </body>
 </html>

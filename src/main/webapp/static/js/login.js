@@ -38,6 +38,6 @@ $(function () {
         }
     })
     $(".code_img").click(function () {
-        this.src = "/book_system/CodeServlet?d=" + new Date();
+        this.src = "CodeServlet?d=" + new Date();
     })
 })

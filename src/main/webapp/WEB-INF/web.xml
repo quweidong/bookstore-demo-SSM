@@ -56,4 +56,13 @@
     <welcome-file-list>
         <welcome-file>static/pages/index.html</welcome-file>
     </welcome-file-list>
+    <!--谷歌验证码-->
+    <servlet>
+        <servlet-name>CodeServlet</servlet-name>
+        <servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CodeServlet</servlet-name>
+        <url-pattern>/CodeServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
