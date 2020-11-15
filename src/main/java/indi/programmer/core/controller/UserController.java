@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -34,6 +35,30 @@ public class UserController {
             }
         }else {
             return "redirect:/static/pages/login.html";
+        }
+    }
+
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
+    public String register(String userName,String password,String email){
+        User user = userService.ReturnOneUser(userName);
+        if (user == null){
+            //可以注册
+            userService.register(userName,password,email);
+            return "redirect:/static/pages/login.html";
+        }else {
+            //注册失败
+            return "redirect:/static/pages/register/html";
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/loginStatus",method = RequestMethod.POST)
+    public User loginStatus(HttpServletRequest request){
+        User user = (User) request.getSession().getAttribute("presentUser");
+        if (user != null){
+            return user;
+        }else {
+
         }
     }
 }

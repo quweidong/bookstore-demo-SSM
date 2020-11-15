@@ -32,7 +32,7 @@ $(function () {
     //查询书籍信息以及关于分页的函数
     synthesis = function(currentPage){
         $.ajaxSettings.async = false;
-        $.post("http://10.84.198.103:8080/book_system/CarServlet","action=selectAllItems",function (data) {
+        $.post("user/selectOneCarAllItems",function (data) {
             //前端分页当数量大于5时，下一页有效
             if (data != null){
                 $("#goToPay").attr("disabled",false);
@@ -52,7 +52,7 @@ $(function () {
                 var j = -1;
                 for (var i=(currentPage-1)*5;i<right;i++){
                     j++;
-                    $.get("http://10.84.198.103:8080/book_system/BookServlet","action=bookInformation&bookId=" + data[i].book_id,function (message) {
+                    $.get("searchOneBookInformation","bookId=" + data[i].book_id,function (message) {
                         if (message != null){
                             $(".carItemImg")[j].src = message.img_url;
                             $(".carItemName")[j].innerHTML = message.book_name;
@@ -74,7 +74,7 @@ $(function () {
     }
     //付款区域的函数
     pay=function(){
-        $.post("http://10.84.198.103:8080/book_system/CarServlet","action=selectOneCar" ,function (data) {
+        $.post("user/selectOneCarInformation",function (data) {
             if (data != null){
                 $("#goodsSum").text("共计"+data.total_number+"件商品");
                 $("#buyPrice").html("总计金额："+"<span style='color: red;font-size: 30px'>￥"+data.total_price+"</span>")
@@ -114,7 +114,7 @@ $(function () {
         if (flag == true) {
             //删除后重新定位到第一页
             $.ajaxSettings.async = false;
-            $.post("http://10.84.198.103:8080/book_system/CarServlet", "action=deleteOneItem&bookId=" + bookId, function (data) {
+            $.post("user/deleteOneItemFromCar", "bookId=" + bookId, function (data) {
 
             }, "json");
             $.ajaxSettings.async = true;
@@ -127,6 +127,6 @@ $(function () {
         }
     }
     $("#goToPay").click(function () {
-        window.location.href="/book_system/pages/afterlogin/take_goods.html";
+        window.location.href="static/pages/user/receipt_information_car.html";
     })
 })

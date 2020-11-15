@@ -18,7 +18,8 @@ public class CarServiceImplTest extends BaseTest {
 
     @Test
     public void addOneGoodToShopCar() {
-        carService.addOneGoodToShopCar("test",8,1);
+        boolean flag = carService.addOneGoodToShopCar("test",8,1);
+        System.out.println(flag);
     }
 
     @Test

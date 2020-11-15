@@ -30,7 +30,7 @@ public class CarServiceImpl implements CarService {
     /**添加一个商品到某个用户的购物车*/
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public void addOneGoodToShopCar(String userName, Integer bookId, Integer inputNumber) {
+    public boolean addOneGoodToShopCar(String userName, Integer bookId, Integer inputNumber) {
         //创建car对象，给car对象的user_name属性赋值，通过user_name查询对应的购物车中的信息
         Car car = new Car();
         car.setUser_name(userName);
@@ -45,14 +45,20 @@ public class CarServiceImpl implements CarService {
         carAndBook.setSingle_price(singlePrice);
         carAndBook.setBook_id(bookId);
         carAndBook.setCar_id(oneCar.getCar_id());
-        //计算在加入商品后，该用户购物车的总数量和总价格应该变化成的值,并加入到car对象中
-        Integer totalNumber = oneCar.getTotal_number() + inputNumber;
-        BigDecimal totalPrice = oneCar.getTotal_price().add(singlePrice);
-        car.setTotal_number(totalNumber);
-        car.setTotal_price(totalPrice);
-        //向购物车中加入该项商品,需要事务
-        carDao.addOneItemToTableCarAndBook(carAndBook);
-        carDao.updateTotalNumberAndTotalPriceFromCar(car);
+        //判断购物车中是否已存在该商品，不存在返回true，并且添加至购物车；如果存在则返回false
+        if (carDao.selectOneItemFromCarAndBook(carAndBook) == null){
+            //计算在加入商品后，该用户购物车的总数量和总价格应该变化成的值,并加入到car对象中
+            Integer totalNumber = oneCar.getTotal_number() + inputNumber;
+            BigDecimal totalPrice = oneCar.getTotal_price().add(singlePrice);
+            car.setTotal_number(totalNumber);
+            car.setTotal_price(totalPrice);
+            //向购物车中加入该项商品,需要事务
+            carDao.addOneItemToTableCarAndBook(carAndBook);
+            carDao.updateTotalNumberAndTotalPriceFromCar(car);
+            return true;
+        }else {
+            return false;
+        }
     }
 
     /**根据用户名查询该用户购物车中的所有商品项*/

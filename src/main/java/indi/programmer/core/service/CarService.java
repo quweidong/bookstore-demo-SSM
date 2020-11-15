@@ -8,7 +8,7 @@ import java.util.List;
 /**购物车模块的service层接口*/
 public interface CarService {
     /**添加一项商品到购物车的功能*/
-    void addOneGoodToShopCar(String userName,Integer bookId,Integer inputNumber);
+    boolean addOneGoodToShopCar(String userName,Integer bookId,Integer inputNumber);
     /**查询某个用户的购物车的所有商品信息*/
     List<CarAndBook> selectOneCarAllItems(String userName);
     /**从购物车中删除一项商品的功能*/

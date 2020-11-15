@@ -104,11 +104,11 @@ $(function () {
     })
     //点击直接购买
     $buyNow.click(function () {
-        window.location.href = "http://10.84.198.103:8080/book_system/pages/afterlogin/book_information_take_goods.html?orderNumber="+$inputNumber.val()+"&bookId="+bookId;
+        window.location.href = "/bookstore/pages/user/receipt_information_book.html?orderNumber="+$inputNumber.val()+"&bookId="+bookId;
     })
     //点击加入购物车
     $addCar.click(function () {
-        $.post("http://10.84.198.103:8080/book_system/CarServlet","action=addOneItem&bookId="+bookId+"&inputNumber="+$inputNumber.val(),function (data) {
+        $.post("user/addOneItemToCar","bookId="+bookId+"&inputNumber="+$inputNumber.val(),function (data) {
             if (data != null){
                 alert(data);
             }
