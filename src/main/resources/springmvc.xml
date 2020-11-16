@@ -11,4 +11,14 @@
     <mvc:resources mapping="/static/**" location="/static/"></mvc:resources>
     <!--声明注解驱动-->
     <mvc:annotation-driven></mvc:annotation-driven>
+    <!--声明拦截器-->
+    <mvc:interceptors>
+        <!--第一个拦截器-->
+        <mvc:interceptor>
+            <mvc:mapping path="/static/pages/user/**"/>
+            <mvc:mapping path="/user/**"/>
+            <!--声明拦截器对象-->
+            <bean class="indi.programmer.core.interceptor.UserLoginStatusInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

@@ -12,14 +12,14 @@ $(function () {
     }
     /*定义注销用户操作的函数*/
     userCancel = function(){
-        $.get("http://10.84.198.103:8080/book_system/UserServlet","action=userCancel",function (data) {},"json");
-        window.location.href = "/book_system/";
+        $.post("user/userCancel",function (data) {},"json");
+        window.location.href = "/bookstore/";
     }
     /*定义用户登录状态的函数*/
     loginStatus = function (){
-        $.post("http://10.84.198.103:8080/book_system/UserServlet","action=loginStatus",function (data) {
+        $.post("loginStatus",function (data) {
             if (data != null){
-                $("#head_span_1").html(data.userName + "&nbsp;|&nbsp;<input type='button' onclick='userCancel()' style='border: none ;background-color: #f1fafc;outline: none;' value='退出'><style type='text/css'>#head_span_1 input:hover{cursor: pointer}</style>");
+                $("#head_span_1").html(data.username + "&nbsp;|&nbsp;<input type='button' onclick='userCancel()' style='border: none ;background-color: #f1fafc;outline: none;' value='退出'><style type='text/css'>#head_span_1 input:hover{cursor: pointer}</style>");
                 $("#userAvatar").attr("src",data.avatar)
             }
         },"json");

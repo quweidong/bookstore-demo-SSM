@@ -10,13 +10,13 @@ $(function () {
         var flag = window.confirm("确定为以上商品付款吗(不要钱)");
         if (flag == true){
             var address = pca.text()+detailAddress.val()
-            $.post("http://10.84.198.103:8080/book_system/OrderServlet","action=payInBookInformation&orderNumber="+orderNumber+"&address="+address+"&bookId="+bookId,function (data) {
+            $.post("user/payInBookInformation","orderNumber="+orderNumber+"&orderAddress="+address+"&bookId="+bookId,function (data) {
                 if (data != null){
                     alert(data);
-                    window.location.href = "/book_system/";
+                    window.location.href = "/bookstore/";
                 }
             },"text")
         }
     })
-    $("#returnCar").attr("href","/book_system/pages/major/book_information.html?bookId="+bookId);
+    $("#returnCar").attr("href","static/pages/book_information.html?bookId="+bookId);
 })

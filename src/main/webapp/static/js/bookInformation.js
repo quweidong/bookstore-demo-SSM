@@ -104,7 +104,7 @@ $(function () {
     })
     //点击直接购买
     $buyNow.click(function () {
-        window.location.href = "/bookstore/pages/user/receipt_information_book.html?orderNumber="+$inputNumber.val()+"&bookId="+bookId;
+        window.location.href = "/bookstore/static/pages/user/receipt_information_book.html?orderNumber="+$inputNumber.val()+"&bookId="+bookId;
     })
     //点击加入购物车
     $addCar.click(function () {

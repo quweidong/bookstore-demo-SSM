@@ -38,6 +38,7 @@ public class UserController {
         }
     }
 
+    /**处理用户注册*/
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     public String register(String userName,String password,String email){
         User user = userService.ReturnOneUser(userName);
@@ -55,10 +56,11 @@ public class UserController {
     @RequestMapping(value = "/loginStatus",method = RequestMethod.POST)
     public User loginStatus(HttpServletRequest request){
         User user = (User) request.getSession().getAttribute("presentUser");
-        if (user != null){
-            return user;
-        }else {
+        return user;
+    }
 
-        }
+    @RequestMapping(value = "/user/userCancel",method = RequestMethod.POST)
+    public void userCancel(HttpSession session){
+        session.invalidate();
     }
 }

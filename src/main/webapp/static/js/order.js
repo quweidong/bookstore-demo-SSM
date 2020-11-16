@@ -9,11 +9,11 @@ $(function () {
     $("#orderList").css({"width": maxWidth1});
     //触发lookOrder函数
     lookOrder = function(message){
-        window.location.href="/book_system/pages/afterlogin/order_item.html?orderNo="+message;
+        window.location.href="static/pages/user/order_item.html?orderNo="+message;
     }
     //当页面加载完成后执行
     //查询书籍信息以及关于分页的函数
-    $.post("http://10.84.198.103:8080/book_system/OrderServlet","action=selectAllOrders",function (data) {
+    $.post("user/selectAllOrders",function (data) {
         if (data != null){
             /*不显示暂无订单*/
             $("#noOrder").css({"display":"none"});

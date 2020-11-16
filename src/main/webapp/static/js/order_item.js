@@ -11,7 +11,7 @@ $(function () {
     var windowLocalStorage = window.location.href;
     /*截取地址栏字符串，将orderNo后面的值截取出来*/
     var orderNo = windowLocalStorage.split("?")[1].split("=")[1];
-    $.post("http://10.84.198.103:8080/book_system/OrderServlet","action=selectOneOrderAllItems&orderNo="+orderNo,function (data) {
+    $.post("user/selectOneOrderAllItems","orderNo="+orderNo,function (data) {
         if (data != null){
             for (var i in data){
                 $("#orderItemList").append("<div class='itemDetail'>\n" +

@@ -57,7 +57,7 @@ $(function () {
                             $(".carItemImg")[j].src = message.img_url;
                             $(".carItemName")[j].innerHTML = message.book_name;
                             $(".carItemAuthor")[j].innerHTML = message.book_author;
-                            $(".carItemSinglePrice")[j].innerHTML = message.price;
+                            $(".carItemSinglePrice")[j].innerHTML = message.book_price;
                         }
                     },"json");
                     $(".carItemInputNumber")[j].innerText = data[i].single_number+"(件)";
