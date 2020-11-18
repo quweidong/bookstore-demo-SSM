@@ -38,7 +38,7 @@ public class OrderController {
 
     //用户登录后在具体商品页面填完地址去支付时
     @ResponseBody
-    @RequestMapping(value = "/user/payInBookInformation",method = RequestMethod.POST)
+    @RequestMapping(value = "/user/payInBookInformation",method = RequestMethod.POST,produces = "text/plain;charset=utf-8")
     public String payInBookInformation(Integer orderNumber,String orderAddress,String orderTelephone,String receiverName,Integer bookId,HttpServletRequest request){
         User user = (User) request.getSession().getAttribute("presentUser");
         orderService.addOneOrderInBookInformation(orderNumber,orderAddress,orderTelephone,receiverName,bookId,user.getId(),user.getUsername());
@@ -47,7 +47,7 @@ public class OrderController {
 
     //用户登录后在购物车页面填完地址后去支付时
     @ResponseBody
-    @RequestMapping(value = "/user/payInCar",method = RequestMethod.POST)
+    @RequestMapping(value = "/user/payInCar",method = RequestMethod.POST,produces = "text/plain;charset=utf-8")
     public String payInCar(String orderAddress,String orderTelephone,String receiverName,HttpServletRequest request){
         User user = (User) request.getSession().getAttribute("presentUser");
         orderService.addOneOrderInCar(orderAddress,orderTelephone,receiverName,user.getId(),user.getUsername());

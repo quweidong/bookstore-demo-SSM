@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
 
@@ -21,34 +25,62 @@ public class UserController {
 
     /**处理用户登录*/
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String login(String userName, String password,String code, HttpServletRequest request){
+    public void login(String userName, String password, String code, HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         String kaptchaCode = (String) session.getAttribute(KAPTCHA_SESSION_KEY);
         if (kaptchaCode.equalsIgnoreCase(code)){
             boolean flag = userService.login(userName,password);
             if (flag == true){
-                User user = userService.ReturnOneUser("test");
+                User user = userService.ReturnOneUser(userName);
                 session.setAttribute("presentUser",user);
-                return "redirect:/static/pages/index.html";
+                response.sendRedirect("/bookstore/");
             }else {
-                return "redirect:/static/pages/login.html";
+                response.setContentType("text/html;charset=UTF-8");
+                PrintWriter out = response.getWriter();
+                out.print("<meta   http-equiv='Content-Type'   content='text/html;   charset=UTF-8'>");
+                out.print("<script>");
+                out.print("alert('用户名或密码错误!');");
+                out.print("window.location.href='/bookstore/static/pages/login.html'");
+                out.print("</script>");
+                out.close();
             }
         }else {
-            return "redirect:/static/pages/login.html";
+            response.setContentType("text/html;charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            out.print("<meta   http-equiv='Content-Type'   content='text/html;   charset=UTF-8'>");
+            out.print("<script>");
+            out.print("alert('请检查验证码是否正确!');");
+            out.print("window.location.href='/bookstore/static/pages/login.html'");
+            out.print("</script>");
+            out.close();
         }
     }
 
     /**处理用户注册*/
     @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public String register(String userName,String password,String email){
-        User user = userService.ReturnOneUser(userName);
+    public void register(String username,String user_password,String email,HttpServletResponse response) throws IOException {
+        User user = userService.ReturnOneUser(username);
         if (user == null){
             //可以注册
-            userService.register(userName,password,email);
-            return "redirect:/static/pages/login.html";
+            userService.register(username,user_password,email);
+            response.setContentType("text/html;charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            out.print("<meta   http-equiv='Content-Type'   content='text/html;   charset=UTF-8'>");
+            out.print("<script>");
+            out.print("alert('注册成功!');");
+            out.print("window.location.href='/bookstore/static/pages/login.html'");
+            out.print("</script>");
+            out.close();
         }else {
             //注册失败
-            return "redirect:/static/pages/register/html";
+            response.setContentType("text/html;charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            out.print("<meta   http-equiv='Content-Type'   content='text/html;   charset=UTF-8'>");
+            out.print("<script>");
+            out.print("alert('该用户已存在，请重新注册!');");
+            out.print("window.location.href='/bookstore/static/pages/register.html'");
+            out.print("</script>");
+            out.close();
         }
     }
 
