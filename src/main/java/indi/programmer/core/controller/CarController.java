@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class CarController {
@@ -24,16 +22,13 @@ public class CarController {
     //用户登录后在商品详情页点击加入到购物车
     @ResponseBody
     @RequestMapping(value = "/user/addOneItemToCar",method = RequestMethod.POST,produces = "text/plain;charset=utf-8")
-    public Map<String,String> addOneItemCar(Integer bookId, Integer inputNumber, HttpServletRequest request) {
-        Map map = new HashMap();
+    public String addOneItemCar(Integer bookId, Integer inputNumber, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("presentUser");
         boolean flag = carService.addOneGoodToShopCar(user.getUsername(),bookId,inputNumber);
         if (flag == true){
-            map.put("message","添加至购物车成功");
-            return map;
+            return "添加至购物车成功";
         }else {
-            map.put("message","购物车中已存在该商品");
-            return map;
+            return "购物车中已存在该商品";
         }
     }
 

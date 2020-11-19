@@ -110,8 +110,8 @@ $(function () {
     $addCar.click(function () {
         $.post("user/addOneItemToCar","bookId="+bookId+"&inputNumber="+$inputNumber.val(),function (data) {
             if (data != null){
-                alert(data["message"]);
+                alert(data);
             }
-        },"json");
+        },"text");
     })
 })
