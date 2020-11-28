@@ -5,17 +5,21 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
 
-public class UserLoginStatusInterceptor implements HandlerInterceptor {
+public class AnotherUserLoginStatusInterceptor implements HandlerInterceptor {
 
-    /**跳转页面的预处理方法*/
+    /**异步请求的预处理方法*/
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         User user = (User) request.getSession().getAttribute("presentUser");
         if (user != null){
             return true;
         }else {
-            response.sendRedirect("/bookstore/static/pages/login.html");
+            response.setContentType("text/html;charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            out.print("请先登录后再执行此操作!");
+            out.close();
             return false;
         }
     }

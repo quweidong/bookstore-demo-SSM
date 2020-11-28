@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    /**所有的异常在这里进行输出*/
+    /**处理所有的异常，跳转到错误页面*/
     @ExceptionHandler(value = Exception.class)
     public void doAllException(Exception exception){
+        /*打印异常的堆栈信息*/
         exception.printStackTrace();
     }
 }

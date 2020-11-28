@@ -16,9 +16,13 @@
         <!--第一个拦截器-->
         <mvc:interceptor>
             <mvc:mapping path="/static/pages/user/**"/>
-            <mvc:mapping path="/user/addOneItemToCar"/>
-            <!--声明拦截器对象-->
+            <!--声明第一个拦截器对象-->
             <bean class="indi.programmer.core.interceptor.UserLoginStatusInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/user/**"/>
+            <!--声明第二个拦截器对象-->
+            <bean class="indi.programmer.core.interceptor.AnotherUserLoginStatusInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 </beans>
